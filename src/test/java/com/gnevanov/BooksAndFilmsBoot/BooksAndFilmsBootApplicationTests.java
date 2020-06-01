@@ -1,30 +1,24 @@
 package com.gnevanov.BooksAndFilmsBoot;
 
+import com.gnevanov.BooksAndFilmsBoot.controllers.AppController;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class BooksAndFilmsBootApplicationTests {
 
-	/*@Before
-	public void before() {
-		bookList.add(new Book("FirstBook", "Gnevanov", "For test"));
-		bookList.add(new Book("SecondBook", "Gnevanov E.", "For test"));
-		bookList.add(new Book("ThirdBook", "Gnevanov Egor", "For test"));
-	}
+	private AppController appController;
 
-	@Test
-	public void getAllBooks() {
-		Assert.assertEquals(bookList.size(),3);
+	@Autowired
+	public void setAppController(AppController appController) {
+		this.appController = appController;
 	}
-
-	@Test
-	public void getName() {
-		Assert.assertEquals(bookList.get(0).getName(),"FirstBook");
-	}*/
 
 	@Test
 	void contextLoads() {
+		Assertions.assertThat(appController).isNotNull();
 	}
 
 }
